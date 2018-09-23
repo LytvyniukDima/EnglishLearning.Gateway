@@ -18,11 +18,13 @@ namespace EnglishLearning.Gateway.Host
             var builder = WebHost.CreateDefaultBuilder(args);
 
             builder.ConfigureServices(s => s.AddSingleton(builder))
-                .ConfigureAppConfiguration(
-                    ic => ic.AddJsonFile(Path.Combine("configuration",
-                        "configuration.json")))
+                .ConfigureAppConfiguration((hostingContext, config) =>
+                {
+                    config.SetBasePath(hostingContext.HostingEnvironment.ContentRootPath)
+                        .AddJsonFile($"configuration.{hostingContext.HostingEnvironment.EnvironmentName}.json");
+                })
                 .UseStartup<Startup>();
-
+            
             return builder;
         }
     }
