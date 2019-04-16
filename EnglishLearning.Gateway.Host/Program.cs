@@ -21,7 +21,8 @@ namespace EnglishLearning.Gateway.Host
                 .ConfigureAppConfiguration((hostingContext, config) =>
                 {
                     config.SetBasePath(hostingContext.HostingEnvironment.ContentRootPath)
-                        .AddJsonFile($"configuration.{hostingContext.HostingEnvironment.EnvironmentName}.json");
+                        .AddJsonFile("configuration.json")
+                        .AddJsonFile($"configuration.{hostingContext.HostingEnvironment.EnvironmentName}.json", true);
                 })
                 .UseStartup<Startup>();
             
