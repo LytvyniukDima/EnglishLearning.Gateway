@@ -1,32 +1,50 @@
-﻿using System.IO;
+﻿using System;
+using System.IO;
 using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Serilog;
 
 namespace EnglishLearning.Gateway.Host
 {
     public class Program
     {
+        public static IConfiguration Configuration { get; } = new ConfigurationBuilder()
+            .SetBasePath(Directory.GetCurrentDirectory())
+            .AddJsonFile("configuration.json", optional: false, reloadOnChange: true)
+            .AddJsonFile($"configuration.{Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT") ?? "Production"}.json", optional: true)
+            .Build();
+        
         public static void Main(string[] args)
         {
-            CreateWebHostBuilder(args).Build().Run();
+            Log.Logger = new LoggerConfiguration()
+                .ReadFrom.Configuration(Configuration)
+                .Enrich.FromLogContext()
+                .WriteTo.Console()
+                .CreateLogger();
+
+            try
+            {
+                Log.Information("Gateway starting ....");
+
+                BuildWebHost(args).Run();
+            }
+            catch (Exception ex)
+            {
+                Log.Fatal(ex, "Host terminated unexpectedly");
+            }
+            finally
+            {
+                Log.CloseAndFlush();
+            }
         }
 
-        public static IWebHostBuilder CreateWebHostBuilder(string[] args)
-        {
-            var builder = WebHost.CreateDefaultBuilder(args);
-
-            builder.ConfigureServices(s => s.AddSingleton(builder))
-                .ConfigureAppConfiguration((hostingContext, config) =>
-                {
-                    config.SetBasePath(hostingContext.HostingEnvironment.ContentRootPath)
-                        .AddJsonFile("configuration.json")
-                        .AddJsonFile($"configuration.{hostingContext.HostingEnvironment.EnvironmentName}.json", true);
-                })
-                .UseStartup<Startup>();
-            
-            return builder;
-        }
+        public static IWebHost BuildWebHost(string[] args) =>
+            WebHost.CreateDefaultBuilder(args)
+                .UseStartup<Startup>()
+                .UseConfiguration(Configuration)
+                .UseSerilog()
+                .Build();
     }
 }
