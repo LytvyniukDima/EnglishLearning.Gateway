@@ -35,6 +35,18 @@
       ],
       "UpstreamPathTemplate": "/api/identity/{everything}",
       "UpstreamHttpMethod": [ "Get", "Post", "Put", "Delete" ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/statistic/{everything}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "statistic_service",
+          "Port": 8700
+        }
+      ],
+      "UpstreamPathTemplate": "/api/statistic/{everything}",
+      "UpstreamHttpMethod": [ "Get", "Post", "Put", "Delete" ]
     }
   ]
 }
