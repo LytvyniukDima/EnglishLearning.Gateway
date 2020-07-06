@@ -1,10 +1,10 @@
-FROM microsoft/dotnet:2.2-sdk AS build
+FROM mcr.microsoft.com/dotnet/core/sdk:3.1 AS build
 
 COPY . /app
-WORKDIR /app/EnglishLearning.Gateway.Host
+WORKDIR /app/src/EnglishLearning.Gateway.Host
 RUN dotnet publish -c Release -o /app/output
 
-FROM microsoft/dotnet:2.2-aspnetcore-runtime AS runtime
+FROM mcr.microsoft.com/dotnet/core/aspnet:3.1 AS runtime
 COPY --from=build /app/output /app/host
 WORKDIR /app/host
 

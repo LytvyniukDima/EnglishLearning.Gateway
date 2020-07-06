@@ -1,11 +1,11 @@
 {
-  "ReRoutes": [
+  "Routes": [
     {
       "DownstreamPathTemplate": "/api/tasks/{everything}",
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
-          "Host": "task_service",
+          "Host": "localhost",
           "Port": 8000
         }
       ],
@@ -17,7 +17,7 @@
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
-          "Host": "multimedia_service",
+          "Host": "localhost",
           "Port": 8500
         }
       ],
@@ -29,7 +29,7 @@
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
-          "Host": "identity_service",
+          "Host": "localhost",
           "Port": 8300
         }
       ],
@@ -41,12 +41,21 @@
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
-          "Host": "statistic_service",
+          "Host": "localhost",
           "Port": 8700
         }
       ],
       "UpstreamPathTemplate": "/api/statistic/{everything}",
       "UpstreamHttpMethod": [ "Get", "Post", "Put", "Delete" ]
     }
-  ]
+  ],
+  "Serilog": {
+    "MinimumLevel": {
+      "Default": "Information",
+      "Override": {
+        "Microsoft": "Information",
+        "System": "Warning"
+      }
+    }
+  }
 }
