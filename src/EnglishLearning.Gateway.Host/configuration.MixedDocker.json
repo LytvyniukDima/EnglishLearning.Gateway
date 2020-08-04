@@ -1,0 +1,72 @@
+{
+    "Routes": [
+        {
+            "DownstreamPathTemplate": "/api/tasks/{everything}",
+            "DownstreamScheme": "http",
+            "DownstreamHostAndPorts": [
+                {
+                    "Host": "host.docker.internal",
+                    "Port": 8000
+                }
+            ],
+            "UpstreamPathTemplate": "/api/tasks/{everything}",
+            "UpstreamHttpMethod": [
+                "Get",
+                "Post",
+                "Put",
+                "Delete"
+            ]
+        },
+        {
+            "DownstreamPathTemplate": "/api/multimedia/{everything}",
+            "DownstreamScheme": "http",
+            "DownstreamHostAndPorts": [
+                {
+                    "Host": "host.docker.internal",
+                    "Port": 8500
+                }
+            ],
+            "UpstreamPathTemplate": "/api/multimedia/{everything}",
+            "UpstreamHttpMethod": [
+                "Get",
+                "Post",
+                "Put",
+                "Delete"
+            ]
+        },
+        {
+            "DownstreamPathTemplate": "/api/identity/{everything}",
+            "DownstreamScheme": "http",
+            "DownstreamHostAndPorts": [
+                {
+                    "Host": "host.docker.internal",
+                    "Port": 8300
+                }
+            ],
+            "UpstreamPathTemplate": "/api/identity/{everything}",
+            "UpstreamHttpMethod": [
+                "Get",
+                "Post",
+                "Put",
+                "Delete"
+            ]
+        },
+        {
+            "DownstreamPathTemplate": "/api/statistic/{everything}",
+            "DownstreamScheme": "http",
+            "DownstreamHostAndPorts": [
+                {
+                    "Host": "host.docker.internal",
+                    "Port": 8700
+                }
+            ],
+            "UpstreamPathTemplate": "/api/statistic/{everything}",
+            "UpstreamHttpMethod": [
+                "Get",
+                "Post",
+                "Put",
+                "Delete"
+            ]
+        }
+    ]
+}
