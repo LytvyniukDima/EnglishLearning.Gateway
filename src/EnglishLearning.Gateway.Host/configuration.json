@@ -47,6 +47,18 @@
       ],
       "UpstreamPathTemplate": "/api/statistic/{everything}",
       "UpstreamHttpMethod": [ "Get", "Post", "Put", "Delete" ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/file-manager/{everything}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 8900
+        }
+      ],
+      "UpstreamPathTemplate": "/api/file-manager/{everything}",
+      "UpstreamHttpMethod": [ "Get", "Post", "Put", "Delete" ]
     }
   ],
   "Serilog": {

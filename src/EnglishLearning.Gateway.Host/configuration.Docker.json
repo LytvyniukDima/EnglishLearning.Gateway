@@ -47,6 +47,18 @@
       ],
       "UpstreamPathTemplate": "/api/statistic/{everything}",
       "UpstreamHttpMethod": [ "Get", "Post", "Put", "Delete" ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/file-manager/{everything}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "file_manager_service",
+          "Port": 8900
+        }
+      ],
+      "UpstreamPathTemplate": "/api/file-manager/{everything}",
+      "UpstreamHttpMethod": [ "Get", "Post", "Put", "Delete" ]
     }
   ]
 }
