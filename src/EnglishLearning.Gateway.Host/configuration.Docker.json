@@ -59,6 +59,23 @@
       ],
       "UpstreamPathTemplate": "/api/file-manager/{everything}",
       "UpstreamHttpMethod": [ "Get", "Post", "Put", "Delete" ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/text-analyzer/{everything}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "text_analyzer_service",
+          "Port": 8100
+        }
+      ],
+      "UpstreamPathTemplate": "/api/text-analyzer/{everything}",
+      "UpstreamHttpMethod": [
+        "Get",
+        "Post",
+        "Put",
+        "Delete"
+      ]
     }
   ]
 }

@@ -10,7 +10,12 @@
         }
       ],
       "UpstreamPathTemplate": "/api/tasks/{everything}",
-      "UpstreamHttpMethod": [ "Get", "Post", "Put", "Delete" ]
+      "UpstreamHttpMethod": [
+        "Get",
+        "Post",
+        "Put",
+        "Delete"
+      ]
     },
     {
       "DownstreamPathTemplate": "/api/multimedia/{everything}",
@@ -22,7 +27,12 @@
         }
       ],
       "UpstreamPathTemplate": "/api/multimedia/{everything}",
-      "UpstreamHttpMethod": [ "Get", "Post", "Put", "Delete" ]
+      "UpstreamHttpMethod": [
+        "Get",
+        "Post",
+        "Put",
+        "Delete"
+      ]
     },
     {
       "DownstreamPathTemplate": "/api/identity/{everything}",
@@ -34,7 +44,12 @@
         }
       ],
       "UpstreamPathTemplate": "/api/identity/{everything}",
-      "UpstreamHttpMethod": [ "Get", "Post", "Put", "Delete" ]
+      "UpstreamHttpMethod": [
+        "Get",
+        "Post",
+        "Put",
+        "Delete"
+      ]
     },
     {
       "DownstreamPathTemplate": "/api/statistic/{everything}",
@@ -46,7 +61,12 @@
         }
       ],
       "UpstreamPathTemplate": "/api/statistic/{everything}",
-      "UpstreamHttpMethod": [ "Get", "Post", "Put", "Delete" ]
+      "UpstreamHttpMethod": [
+        "Get",
+        "Post",
+        "Put",
+        "Delete"
+      ]
     },
     {
       "DownstreamPathTemplate": "/api/file-manager/{everything}",
@@ -58,7 +78,29 @@
         }
       ],
       "UpstreamPathTemplate": "/api/file-manager/{everything}",
-      "UpstreamHttpMethod": [ "Get", "Post", "Put", "Delete" ]
+      "UpstreamHttpMethod": [
+        "Get",
+        "Post",
+        "Put",
+        "Delete"
+      ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/text-analyzer/{everything}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 8100
+        }
+      ],
+      "UpstreamPathTemplate": "/api/text-analyzer/{everything}",
+      "UpstreamHttpMethod": [
+        "Get",
+        "Post",
+        "Put",
+        "Delete"
+      ]
     }
   ],
   "Serilog": {
