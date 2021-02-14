@@ -100,7 +100,12 @@
         "Post",
         "Put",
         "Delete"
-      ]
+      ],
+      "QoSOptions": {
+        "ExceptionsAllowedBeforeBreaking":1,
+        "DurationOfBreak":6,
+        "TimeoutValue": 300000
+      }
     }
   ],
   "Serilog": {

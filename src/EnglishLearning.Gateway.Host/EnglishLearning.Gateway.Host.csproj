@@ -6,6 +6,9 @@
     <PackageReference Include="Ocelot">
       <Version>16.0.1</Version>
     </PackageReference>
+    <PackageReference Include="Ocelot.Provider.Polly">
+      <Version>16.0.1</Version>
+    </PackageReference>
     <PackageReference Include="Serilog.AspNetCore">
       <Version>3.4.0</Version>
     </PackageReference>

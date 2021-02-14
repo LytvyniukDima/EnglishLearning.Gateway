@@ -5,6 +5,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Ocelot.DependencyInjection;
 using Ocelot.Middleware;
+using Ocelot.Provider.Polly;
 
 namespace EnglishLearning.Gateway.Host
 {
@@ -29,7 +30,9 @@ namespace EnglishLearning.Gateway.Host
                         .AllowAnyHeader());
             });
 
-            services.AddOcelot(_configuration);
+            services
+                .AddOcelot(_configuration)
+                .AddPolly();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
