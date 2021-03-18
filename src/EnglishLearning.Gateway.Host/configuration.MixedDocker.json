@@ -101,6 +101,23 @@
                 "Put",
                 "Delete"
             ]
-        }
+        },
+        {
+            "DownstreamPathTemplate": "/api/dictionary/{everything}",
+            "DownstreamScheme": "http",
+            "DownstreamHostAndPorts": [
+              {
+                "Host": "host.docker.internal",
+                "Port": 8200
+              }
+            ],
+            "UpstreamPathTemplate": "/api/dictionary/{everything}",
+            "UpstreamHttpMethod": [
+              "Get",
+              "Post",
+              "Put",
+              "Delete"
+            ]
+          }
     ]
 }
