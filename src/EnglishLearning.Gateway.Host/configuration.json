@@ -123,6 +123,23 @@
         "Put",
         "Delete"
       ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/course/{everything}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 8800
+        }
+      ],
+      "UpstreamPathTemplate": "/api/course/{everything}",
+      "UpstreamHttpMethod": [
+        "Get",
+        "Post",
+        "Put",
+        "Delete"
+      ]
     }
   ],
   "Serilog": {
